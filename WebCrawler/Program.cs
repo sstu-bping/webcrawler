@@ -3,50 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using WebCrawler.Downloader;
+using WebCrawler.Parser;
 
 namespace WebCrawler
 {
-    interface IDownloader
-    {
-        void Load(String url, String path);
-    }
-
-    class FictiveDownloader : IDownloader
-    {
-        public void Load(String url, String path)
-        {
-            StreamWriter sw = new StreamWriter(path);
-            sw.WriteLine("<html>");
-            sw.WriteLine("<head>");
-            sw.WriteLine("<title>Title</title>");
-            sw.WriteLine("</head>");
-            sw.WriteLine("<body>");
-            sw.WriteLine("<p>jknhklnmkln</p>");
-            sw.WriteLine("<a href=\"www.w3c.org\">w3c</a>");
-            sw.WriteLine("<p>jknhklnmkln</p>");
-            sw.WriteLine("<a href=\"www.ru.wikipedia.org\">Wikipedia</a>");
-            sw.WriteLine("</body>");
-            sw.WriteLine("</html>");
-            sw.Close();
-        }
-    }
-
-    interface IParser
-    {
-        List<String> Parse(String path);
-    }
-
-    class FictiveParser : IParser
-    {
-        public List<String> Parse(String path)
-        {
-            List<String> result = new List<String>();
-            result.Add("www.w3c.org");
-            result.Add("www.ru.wikipedia.org");
-            return result;
-        }
-    }
-    
     class Program
     {        
         public static void Main(string[] args)
