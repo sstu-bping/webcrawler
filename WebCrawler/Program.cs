@@ -9,7 +9,8 @@ using WebCrawler.Parser;
 namespace WebCrawler
 {
     class Program
-    {        
+    {
+
         public static void Main(string[] args)
         {
             IDownloader downloader = new FictiveDownloader();
@@ -19,13 +20,14 @@ namespace WebCrawler
             Console.WriteLine("Enter url:");
             urls.Add(Console.ReadLine());
             String url = "";
+            String html = "";
             while (urls.Count != 0)
             {
                 url = urls[0];
 
                 if (showedUrls.Find(x => x.Equals(url)) == null)
                 {
-                    downloader.Load(url, path);
+                    html = downloader.Load(url);
                     result = parser.Parse(path);
                     showedUrls.Add(url);
                 }

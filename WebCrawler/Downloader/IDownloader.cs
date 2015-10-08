@@ -7,6 +7,6 @@ namespace WebCrawler.Downloader
 {
     interface IDownloader
     {
-        void Load(String url, String path);
+        string Load(String url);
     }
 }

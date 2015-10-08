@@ -43,14 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Downloader\FictiveDownloader.cs" />
+    <Compile Include="Downloader\Downloader.cs" />
     <Compile Include="Downloader\IDownloader.cs" />
     <Compile Include="Parser\FictiveParser.cs" />
     <Compile Include="Parser\IParser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

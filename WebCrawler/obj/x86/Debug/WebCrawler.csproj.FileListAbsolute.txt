@@ -1,0 +1,5 @@
+D:\Users\Дмитрий Исаев\Desktop\WebCrawler\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Users\Дмитрий Исаев\Desktop\WebCrawler\bin\Debug\WebCrawler.exe
+D:\Users\Дмитрий Исаев\Desktop\WebCrawler\bin\Debug\WebCrawler.pdb
+D:\Users\Дмитрий Исаев\Desktop\WebCrawler\obj\x86\Debug\WebCrawler.exe
+D:\Users\Дмитрий Исаев\Desktop\WebCrawler\obj\x86\Debug\WebCrawler.pdb
