@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using WebCrawler.Downloader;
 using WebCrawler.Graph;
-using WebCrawler.Parser;
+using Parser;
 
 namespace WebCrawler
 {

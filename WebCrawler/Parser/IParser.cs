@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Collections;
 using WebCrawler.Graph;
 
-namespace WebCrawler.Parser
+namespace Parser
 {
     interface IParser
     {
-        List<Link> Parse(String site);
+        List<Link> Parse(string text);
     }
 }
