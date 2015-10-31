@@ -12,56 +12,30 @@ namespace Parser
     class FictiveParser : IParser
     {        
 
-        string tagStart;
-        string tagTwoStart;
-        string tagEnd;
+        string tagStart = "<a";
+        string tagTwoStart = "href=\"";
+        string tagEnd = "\"";
 
-        public string TagStart
+      
+
+        public List<Link> Parse(string html)
         {
-            get { return tagStart; }
+            //don't mind please
+            html += "<a href=\"/HelloWorldParserAndDownloader\">";
 
-            set
-            {
-                tagStart = value;
-            }
-        }
-
-        public string TagTwoStart
-        {
-            get { return tagTwoStart; }
-
-            set
-            {
-                tagTwoStart = value;
-            }
-        }
-
-        public string TagEnd
-        {
-            get { return tagEnd; }
-
-            set
-            {
-                tagEnd = value;
-            }
-        }
-
-        private List<Link> loadLink(string html)
-        {          
-
-            html += "<a href=\"/HelloWorldParserAndDownloader\">";                   
-
-            TextSearcher ts = new TextSearcher(html); 
+            TextSearcher ts = new TextSearcher(html);
 
             //Объявляем очередь
             List<Link> links = new List<Link>();
 
             string str = null;
-            bool cycle = true;           
+            bool cycle = true;
 
-            while(cycle){
-                
+            while (cycle)
+            {
+
                 ts.Skip(tagStart);
+                Console.WriteLine("debug. first skip");
                 ts.Skip(tagTwoStart);
                 str = ts.ReadTo(tagEnd);
 
@@ -77,25 +51,19 @@ namespace Parser
                     if ((str.Length >= 4) && ((str.Substring(0, 4).CompareTo("http")) != 0))
                     {
                         links.Add(new Link(str));
-                       
+
                     }
                     else
                         if ((str.Length >= 0) && (str.Length <= 3))
-                        {
-                            links.Add(new Link(str));
-                           
-                        }
+                    {
+                        links.Add(new Link(str));
+
+                    }
                 }
-                   
-                }               
+
+            }
 
             return links;
-
-        }
-
-        public List<Link> Parse(string text)
-        {
-            return loadLink(text);
         }
 
        

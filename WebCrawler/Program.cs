@@ -16,6 +16,7 @@ namespace WebCrawler
         {
             LinkStorage storage = new LinkStorage();
             storage.GetInitialLink();
+            Console.WriteLine("debug. init");
             GraphMaker maker = new GraphMaker();
             Node node = null;
             while (storage.IsNeedVisit())

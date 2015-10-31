@@ -25,7 +25,8 @@ namespace WebCrawler
         public void GetInitialLink()
         {
             Console.WriteLine("Enter url:");
-            Link link = new Link(Console.ReadLine());
+            string url = Console.ReadLine();
+            Link link = new Link(url);
             links.Add(link);
         }
 
