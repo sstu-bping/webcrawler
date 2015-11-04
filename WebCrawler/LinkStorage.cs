@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using WebCrawler.Downloader;
 using WebCrawler.Graph;
-using Parser;
+using WebCrawler.Parser;
 
 namespace WebCrawler
 {
@@ -25,8 +25,7 @@ namespace WebCrawler
         public void GetInitialLink()
         {
             Console.WriteLine("Enter url:");
-            string url = Console.ReadLine();
-            Link link = new Link(url);
+            Link link = new Link(Console.ReadLine());
             links.Add(link);
         }
 

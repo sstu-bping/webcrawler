@@ -46,14 +46,13 @@
     <Compile Include="Downloader\Downloader.cs" />
     <Compile Include="Downloader\FictiveDownloader.cs" />
     <Compile Include="Downloader\IDownloader.cs" />
-    <Compile Include="Parser\FictiveParser.cs" />
     <Compile Include="Graph\GraphMaker.cs" />
     <Compile Include="Graph\Graph.cs" />
     <Compile Include="Graph\Link.cs" />
     <Compile Include="Graph\Node.cs" />
     <Compile Include="LinkStorage.cs" />
+    <Compile Include="Parser\FictiveParser.cs" />
     <Compile Include="Parser\IParser.cs" />
-    <Compile Include="Parser\TextSearcher.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -18,13 +18,8 @@ namespace WebCrawler.Downloader
         {
             HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
             HttpWebResponse response = request.GetResponse() as HttpWebResponse;
-            
-            string html="";
-            using (StreamReader sr = new StreamReader(response.GetResponseStream(), Encoding.UTF8))
-            {
-                html = sr.ReadToEnd();
-            };
-            
+            StreamReader sr = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
+            string html = sr.ReadToEnd();
             return html;
         }
 

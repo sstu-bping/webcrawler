@@ -9,6 +9,11 @@ namespace WebCrawler.Graph
     {
         private List<Node> graph;
 
+        public Graph()
+        {
+            graph = new List<Node>();
+        }
+
         public List<Node> Graf
         {
             get
