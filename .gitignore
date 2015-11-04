@@ -1,2 +1,4 @@
 /WebCrawler/.vs
 /WebCrawler/obj
+/WebCrawler/*.suo
+/WebCrawler/bin
