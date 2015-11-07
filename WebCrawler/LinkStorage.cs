@@ -14,30 +14,30 @@ namespace WebCrawler
         private IDownloader downloader;
         private IParser parser;
 
-        public LinkStorage()
+        public LinkStorage(Link initialLink)
         {
             links = new List<Link>();
+            links.Add(initialLink);
             visitedLinks = new List<Link>();
             downloader = new FictiveDownloader();
             parser = new FictiveParser();
         }
 
-        public void GetInitialLink()
-        {
-            Console.WriteLine("Enter url:");
-            Link link = new Link(Console.ReadLine());
-            links.Add(link);
-        }
-
         private bool IsVisited(Link link)
         {
-            if (visitedLinks.Find(x => x.Equals(link)) == null) return false;
-            return true;
+            bool isVisited = (visitedLinks.Find(x => x.Equals(link)) != null);
+            return isVisited;
         }
 
         private void RemoveVisitedLinks()
         {
-            if (links.Count >= 10) foreach (Link element in visitedLinks) Remove(element);
+            if (links.Count >= 10)
+            {
+                foreach (Link element in visitedLinks)
+                {
+                    Remove(element);
+                }
+            }
         }
 
         private void Remove(Link link)
@@ -51,22 +51,24 @@ namespace WebCrawler
             return true;
         }
 
-        public Node Visit()
+        public List<Link> Visit(out Link link)
         {
-            Link link = links[0];
+            link = links[0];
             String site = "";
             List<Link> list = new List<Link>();
             if (!IsVisited(link))
             {
-                site = downloader.Load(link.Name);
+                site = downloader.Load(link.URL);
                 list = parser.Parse(site);
-                if (list.Count != 0) links.AddRange(list);
+                if (list.Count != 0)
+                {
+                    links.AddRange(list);
+                }
                 visitedLinks.Add(link);
             }
             Remove(link);
             RemoveVisitedLinks();
-            Node result = new Node(link, list);
-            return result;
+            return list;
         }
     }
 }

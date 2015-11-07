@@ -8,16 +8,28 @@ namespace WebCrawler
 {
     class Program
     {
+        public static Link GetInitialLink()
+        {
+            Console.WriteLine("Enter url:");
+            String line = Console.ReadLine();
+            Link link = new Link(line);
+            return link;
+        }
+
         public static void Main(string[] args)
         {
-            LinkStorage storage = new LinkStorage();
-            storage.GetInitialLink();
+            Link initialLink = GetInitialLink();
+            LinkStorage storage = new LinkStorage(initialLink);
             GraphMaker maker = new GraphMaker();
-            Node node = null;
+            Link link = new Link("");
+            List<Link> parseResult = new List<Link>();
             while (storage.IsNeedVisit())
             {
-                node = storage.Visit();
-                maker.Make(node);
+                parseResult = storage.Visit(out link);
+                if (parseResult.Count > 0)
+                {
+                    maker.Make(link, parseResult);
+                }
             }
         }
     }

@@ -7,24 +7,24 @@ namespace WebCrawler.Graph
 {
     class Graph
     {
-        private List<Node> graph;
+        private List<Node> listOfNodes;
 
         public Graph()
         {
-            graph = new List<Node>();
+            listOfNodes = new List<Node>();
         }
 
-        public List<Node> Graf
+        public List<Node> ListOfNodes
         {
             get
             {
-                return graph;
+                return listOfNodes;
             }
         }
 
         public void AddNode(Node node)
         {
-            graph.Add(node);
+            listOfNodes.Add(node);
         }
     }
 }

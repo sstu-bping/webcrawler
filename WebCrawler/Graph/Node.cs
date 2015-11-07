@@ -7,20 +7,20 @@ namespace WebCrawler.Graph
 {
     class Node
     {
-        private Link node;
+        private Link associatedLink;
         private List<Link> listSm;
 
         public Node(Link link, List<Link> list)
         {
-            node = link;
+            associatedLink = link;
             listSm = list;
         }
 
-        public Link NODE
+        public Link AssociatedLink
         {
             get
             {
-                return node;
+                return associatedLink;
             }
         }
 

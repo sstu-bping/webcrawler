@@ -7,18 +7,18 @@ namespace WebCrawler.Graph
 {
     class Link
     {
-        private String name;
+        private String url;
 
         public Link(String link)
         {
-            name = link;
+            url = link;
         }
 
-        public String Name
+        public String URL
         {
             get
             {
-                return name;
+                return url;
             }
         }
 
@@ -33,7 +33,7 @@ namespace WebCrawler.Graph
             if (obj is Link)
             {
                 Link link = (Link)obj;
-                if (link.name.Equals(this.name)) return true;
+                if (link.url.Equals(this.url)) return true;
             }
             return false;
         }

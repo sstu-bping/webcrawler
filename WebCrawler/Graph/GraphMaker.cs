@@ -14,7 +14,7 @@ namespace WebCrawler.Graph
             graph = new Graph();
         }
 
-        public Graph Graf
+        public Graph Graph
         {
             get
             {
@@ -22,8 +22,9 @@ namespace WebCrawler.Graph
             }
         }
 
-        public void Make(Node node)
+        public void Make(Link link, List<Link> list)
         {
+            Node node = new Node(link, list);
             graph.AddNode(node);
         }
     }
