@@ -14,7 +14,7 @@ namespace WebCrawler.Graph
             url = link;
         }
 
-        public String URL
+        public String Url
         {
             get
             {
@@ -24,7 +24,7 @@ namespace WebCrawler.Graph
 
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+           return base.GetHashCode();
         }
 
         public override bool Equals(object obj)

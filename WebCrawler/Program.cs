@@ -31,6 +31,8 @@ namespace WebCrawler
                     maker.Make(link, parseResult);
                 }
             }
+            Console.WriteLine(maker.Graph.ListOfNodes);
+            Console.ReadKey();
         }
     }
 }

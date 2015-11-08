@@ -16,12 +16,15 @@ namespace WebCrawler.Downloader
 
         protected string getHTML(string url)
         {
+            //TODO: 404 error exception
             HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
             HttpWebResponse response = request.GetResponse() as HttpWebResponse;
-            StreamReader sr = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
-            string html = sr.ReadToEnd();
+            string html = "";
+            using (StreamReader sr = new StreamReader(response.GetResponseStream(), Encoding.UTF8))
+            {
+                html = sr.ReadToEnd();
+            };
             return html;
         }
-
     }
 }

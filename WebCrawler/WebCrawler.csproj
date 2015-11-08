@@ -53,6 +53,8 @@
     <Compile Include="LinkStorage.cs" />
     <Compile Include="Parser\FictiveParser.cs" />
     <Compile Include="Parser\IParser.cs" />
+    <Compile Include="Parser\Parser.cs" />
+    <Compile Include="Parser\TextSercher.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

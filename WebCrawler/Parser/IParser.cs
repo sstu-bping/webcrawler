@@ -8,6 +8,6 @@ namespace WebCrawler.Parser
 {
     interface IParser
     {
-        List<Link> Parse(String site);
+        List<Link> Parse(String site, Link initialLink);
     }
 }

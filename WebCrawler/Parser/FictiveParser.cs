@@ -8,7 +8,7 @@ namespace WebCrawler.Parser
 {
     class FictiveParser : IParser
     {
-        public List<Link> Parse(String site)
+        public List<Link> Parse(String site, Link initialLink)
         {
             List<Link> result = new List<Link>();
             result.Add(new Link("www.w3c.org"));

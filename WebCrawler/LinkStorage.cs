@@ -13,14 +13,16 @@ namespace WebCrawler
         private List<Link> links, visitedLinks;
         private IDownloader downloader;
         private IParser parser;
+        private Link initialLink;
 
         public LinkStorage(Link initialLink)
         {
             links = new List<Link>();
+            this.initialLink = initialLink;
             links.Add(initialLink);
             visitedLinks = new List<Link>();
-            downloader = new FictiveDownloader();
-            parser = new FictiveParser();
+            downloader = new Downloader.Downloader();
+            parser = new Parser.Parser();
         }
 
         private bool IsVisited(Link link)
@@ -31,6 +33,7 @@ namespace WebCrawler
 
         private void RemoveVisitedLinks()
         {
+            //TODO: magic number !!!
             if (links.Count >= 10)
             {
                 foreach (Link element in visitedLinks)
@@ -58,8 +61,8 @@ namespace WebCrawler
             List<Link> list = new List<Link>();
             if (!IsVisited(link))
             {
-                site = downloader.Load(link.URL);
-                list = parser.Parse(site);
+                site = downloader.Load(link.Url);
+                list = parser.Parse(site, initialLink);
                 if (list.Count != 0)
                 {
                     links.AddRange(list);
