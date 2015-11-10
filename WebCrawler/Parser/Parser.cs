@@ -57,10 +57,10 @@ namespace WebCrawler.Parser
         }
 
         /// <summary>
-        /// check URL for "HTTP" substring
+        /// check URL for "http" substring
         /// </summary>
         /// <param name="str">checked URL</param>
-        /// <returns>true if URL contains "HTTP"</returns>
+        /// <returns>true if URL contains "http"</returns>
         private bool IsInternalLinkl(string str)
         {
             if (((str.Length >= HTTP.Length) && ((str.Substring(0, HTTP.Length).CompareTo(HTTP)) != 0)) || ((str.Length > 0) && (str.Length < HTTP.Length)))
