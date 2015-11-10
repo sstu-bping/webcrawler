@@ -9,6 +9,11 @@ namespace WebCrawler.Downloader
 {
     class Downloader : IDownloader
     {
+        /// <summary>
+        /// loading HTML code of page
+        /// </summary>
+        /// <param name="url">URL address of loaded page</param>
+        /// <returns>String with HTML code of page</returns>
         public String Load(string url)
         {
             return getHTML(url);
