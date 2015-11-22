@@ -23,34 +23,27 @@ namespace WebCrawler.Parser
         /// <returns>List of links found on the page</returns>
         public List<Link> Parse(string html, Link initialLink)
         {
-            //TODO: fix
-            html += "<a href=\"/HelloWorldParserAndDownloader\">";
-
+           
             TextSearcher ts = new TextSearcher(html);
 
             //defining queue
             List<Link> links = new List<Link>();
 
             string str = null;
-            bool cycle = true;
-
-            while (cycle)
+          
+            for (int i = 0; i < html.Length; i++)
             {
 
                 ts.Skip(tagStart);
                 ts.Skip(tagTwoStart);
                 str = ts.ReadTo(tagEnd);
-
-                if (str.Equals("/HelloWorldParserAndDownloader"))
-                {
-                    cycle = false;
-                    continue;
-                }    
+                
 
                 if (IsInternalLinkl(str))
                 {
                     string url = initialLink.Url + str;
                     links.Add(new Link(url));
+                    i = ts.get_p();
                 }
             }
             return links;
