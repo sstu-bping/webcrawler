@@ -10,7 +10,7 @@ namespace WebCrawler.Downloader
     class Downloader : IDownloader
     {
         /// <summary>
-        /// loading HTML code of page
+        /// loading HTML code of page.
         /// </summary>
         /// <param name="url">URL address of loaded page</param>
         /// <returns>String with HTML code of page</returns>
@@ -22,8 +22,17 @@ namespace WebCrawler.Downloader
         protected string getHTML(string url)
         {
             //TODO: 404 error exception
-            HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
-            HttpWebResponse response = request.GetResponse() as HttpWebResponse;
+            HttpWebRequest request;
+            HttpWebResponse response;
+            try
+            {
+                  request = WebRequest.Create(url) as HttpWebRequest;
+                  response = request.GetResponse() as HttpWebResponse;
+            } catch (System.Net.WebException e)
+            {
+                return "404: " + url;
+            }
+
             string html = "";
             using (StreamReader sr = new StreamReader(response.GetResponseStream(), Encoding.UTF8))
             {
