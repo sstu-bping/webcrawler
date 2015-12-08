@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analizer\Analizer.cs" />
     <Compile Include="Downloader\Downloader.cs" />
     <Compile Include="Downloader\FictiveDownloader.cs" />
     <Compile Include="Downloader\IDownloader.cs" />

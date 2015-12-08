@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using WebCrawler.Graph;
+using WebCrawler.Analizer;
 
 namespace WebCrawler
 {
@@ -69,6 +70,10 @@ namespace WebCrawler
                     maker.Make(link, parseResult);
                 }
             }
+
+            Analizer.Analizer analizer = new Analizer.Analizer(maker.Graph);
+            Node []arr = maker.Graph.ListOfNodes.ToArray();
+
             Console.WriteLine(maker.Graph.ToString());
             Console.ReadKey();
         }
