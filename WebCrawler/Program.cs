@@ -62,6 +62,18 @@ namespace WebCrawler
         {
             initialLink = GetInitialLink();
             storage = new LinkStorage(initialLink);
+            parseResult = storage.Visit(out link);
+            if (link is ProblemLink)
+            {
+                Console.WriteLine("По запрашиваемому URL ничего не найдено");
+                return;
+            }
+            if (parseResult.Count == 0)
+            {
+                Console.WriteLine("Запрашиваемый URL - единственная страница сайта");
+                return;
+            }
+            maker.Make(link, parseResult);
             while (storage.IsNeedVisit())
             {
                 parseResult = storage.Visit(out link);

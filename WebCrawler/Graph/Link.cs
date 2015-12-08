@@ -13,7 +13,7 @@ namespace WebCrawler.Graph
         /// <summary>
         /// URL ссылки
         /// </summary>
-        private String url;
+        protected String url;
 
         /// <summary>
         /// Конструктор

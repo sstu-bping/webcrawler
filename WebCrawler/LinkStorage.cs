@@ -114,15 +114,23 @@ namespace WebCrawler
             List<Link> list = new List<Link>();
             if (!IsVisited(link))
             {
-                site = downloader.Load(link.Url);
-                list = parser.Parse(site, initialLink);
+                try
+                {
+                    site = downloader.Load(link.Url);
+                    list = parser.Parse(site, initialLink);
+                }
+                catch(Exception exc)
+                {
+                    link = new ProblemLink(links[0].Url);
+                    list = new List<Link>();
+                }
                 if (list.Count != 0)
                 {
                     links.AddRange(list);
                 }
-                visitedLinks.Add(link);
+                visitedLinks.Add(links[0]);
             }
-            Remove(link);
+            Remove(links[0]);
             RemoveVisitedLinks();
             return list;
         }
