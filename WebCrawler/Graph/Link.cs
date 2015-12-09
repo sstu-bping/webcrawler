@@ -13,7 +13,12 @@ namespace WebCrawler.Graph
         /// <summary>
         /// URL ссылки
         /// </summary>
-        protected String url;
+        private String url;
+
+        /// <summary>
+        /// Тип ссылки
+        /// </summary>
+        public LinkType type = LinkType.normal;
 
         /// <summary>
         /// Конструктор

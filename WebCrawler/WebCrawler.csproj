@@ -50,8 +50,8 @@
     <Compile Include="Graph\GraphMaker.cs" />
     <Compile Include="Graph\Graph.cs" />
     <Compile Include="Graph\Link.cs" />
+    <Compile Include="Graph\LinkType.cs" />
     <Compile Include="Graph\Node.cs" />
-    <Compile Include="Graph\ProblemLink.cs" />
     <Compile Include="LinkStorage.cs" />
     <Compile Include="Parser\FictiveParser.cs" />
     <Compile Include="Parser\IParser.cs" />

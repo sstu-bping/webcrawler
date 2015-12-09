@@ -63,7 +63,7 @@ namespace WebCrawler
             initialLink = GetInitialLink();
             storage = new LinkStorage(initialLink);
             parseResult = storage.Visit(out link);
-            if (link is ProblemLink)
+            if (link.type == LinkType.problem)
             {
                 Console.WriteLine("По запрашиваемому URL ничего не найдено");
                 return;
@@ -77,7 +77,7 @@ namespace WebCrawler
             while (storage.IsNeedVisit())
             {
                 parseResult = storage.Visit(out link);
-                if (parseResult.Count > 0)
+                if (link.type == LinkType.normal)
                 {
                     maker.Make(link, parseResult);
                 }
