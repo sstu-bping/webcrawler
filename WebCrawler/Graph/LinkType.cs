@@ -7,8 +7,8 @@ namespace WebCrawler.Graph
 {
     enum LinkType
     {
-        normal,
-        problem,
-        visited;
+        Normal,
+        Problem,
+        Visited,
     }
 }

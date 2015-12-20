@@ -18,7 +18,7 @@ namespace WebCrawler.Graph
         /// <summary>
         /// Тип ссылки
         /// </summary>
-        public LinkType type = LinkType.normal;
+        public LinkType Type { get; set; }
 
         /// <summary>
         /// Конструктор

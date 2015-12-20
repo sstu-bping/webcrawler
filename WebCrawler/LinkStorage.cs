@@ -121,7 +121,7 @@ namespace WebCrawler
                 }
                 catch(Exception exc)
                 {
-                    link.type = LinkType.problem;
+                    link.Type = LinkType.Problem;
                     list = new List<Link>();
                 }
                 if (list.Count != 0)
@@ -132,7 +132,7 @@ namespace WebCrawler
             }
             else
             {
-                link.type = LinkType.visited;
+                link.Type = LinkType.Visited;
             }
             Remove(links[0]);
             RemoveVisitedLinks();
